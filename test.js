@@ -1,6 +1,8 @@
-function createNDimensionalArray(n, size) {
-  const base = Array(size).fill(Array(size).fill(0, 0),0);
-
-  return base;
+function createChunks(arr, chunkSize) {
+  console.log(3 % 3);
+  let subArr = [];
+  arr.reduce((acc, val, idx) => {});
+  return true;
 }
-console.log(createNDimensionalArray(3, 2));
+
+console.log(createChunks([1, 2, 3, 4, 5, 6, 7], 3));
