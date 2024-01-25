@@ -1,21 +1,19 @@
-function findLongestIncreasingSubsequence(nums) {
-  let subArr = [];
-  let lastItem = nums[0];
-  return nums
-    .reduce((acc, val, idx, arr) => {
-      if (val >= lastItem) {
-        subArr.push(val);
-      } else {
-        acc.push(subArr);
-        subArr = [val];
-      }
-      lastItem = val;
-      if (idx === arr.length - 1) acc.push(subArr);
-      return acc;
-    }, [])
-    .sort((a, b) => b.length - a.length)[0].length;
+function shiftArray(arr, n) {
+  const len = arr.length;
+  const newArr = arr.map((item) => item);
+  console.log(newArr)
+  let tempIdx = 0;
+  const resArr = arr.map((val, idx) => {
+    if (idx + n >= len) {
+      tempIdx = (idx + n) - len;
+    } else {
+      tempIdx = idx + n;
+    }
+    console.log(tempIdx);
+    newArr[tempIdx] = val;
+    return newArr;
+  });
+  return newArr;
 }
 
-console.log(
-  findLongestIncreasingSubsequence([41, 60, 80, 10, 22, 9, 33, 21, 50])
-);
+console.log(shiftArray(['a', 'b', 'c', 'd'], -1));
